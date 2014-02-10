@@ -11,14 +11,13 @@ Meteor.publish('results', ->
 )
 
 Meteor.startup(->
-  query  = Players.find()
-  handle = query.observe({
+  playersHandle = Players.find().observe({
     added: (player) ->
       unless Games.findOne({player_id: player._id})?
         game = startNewGame(player)
         advanceRound(game)
   })
-  Results.find().observeChanges({
+  resultsHandle = Results.find().observeChanges({
     changed: (id, fields) ->
       if fields.placedOrder?
         result = Results.findOne(id)

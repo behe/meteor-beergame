@@ -9,7 +9,6 @@
 {{> game}}
 </body>
 
-
 <template name="join">
   {{#if show}}
   <p class="join">
@@ -17,7 +16,6 @@
   </p>
   {{/if}}
 </template>
-
 
 <template name="game">
   {{#if show}}
@@ -27,11 +25,36 @@
       <button>Place order</button>
     </p>
 
+    {{> gameStatus}}
     {{> result}}
   </div>
   {{/if}}
 </template>
 
+<template name="gameStatus">
+  <table class="result">
+    <thead>
+    <tr>
+      <td>Round</td>
+      <td>Balance</td>
+      <td>Incoming order</td>
+      <td>Incoming supply</td>
+      <td>Delivered order</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{#with data}}
+    <tr>
+      <td>{{round}}</td>
+      <td>{{currentBalance}}</td>
+      <td>{{incomingOrder}}</td>
+      <td>{{incomingSupply}}</td>
+      <td>{{deliveredOrder}}</td>
+    </tr>
+    {{/with}}
+    </tbody>
+  </table>
+</template>
 
 <template name="result">
   <table class="result">

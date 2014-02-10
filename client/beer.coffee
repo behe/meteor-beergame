@@ -9,8 +9,11 @@ Meteor.startup(->
 @player = ->
   Session.get('player_id')
 
+@game = ->
+  Games.findOne({player_id: player()})
+
 @gameExists = ->
-  Games.findOne({player_id: player()})?
+  game()?
 
 @result = ->
   Results.findOne({player_id: player()}, {sort: [['round', 'desc']]})
@@ -35,3 +38,6 @@ Template.game.events({
 
 Template.result.data = ->
   Results.find({player_id: player()})
+
+Template.gameStatus.data = ->
+  result()
