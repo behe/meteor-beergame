@@ -1,0 +1,67 @@
+<head>
+  <title>MIT Beer Distribution Game</title>
+</head>
+
+<body>
+<h1>MIT Beer Distribution Game</h1>
+
+{{> join}}
+{{> game}}
+</body>
+
+
+<template name="join">
+  {{#if show}}
+  <p class="join">
+    <button>Join game</button>
+  </p>
+  {{/if}}
+</template>
+
+
+<template name="game">
+  {{#if show}}
+  <div class="game">
+    <p>
+      <input type="text" class="order"/>
+      <button>Place order</button>
+    </p>
+
+    {{> result}}
+  </div>
+  {{/if}}
+</template>
+
+
+<template name="result">
+  <table class="result">
+    <thead>
+    <tr>
+      <td>Round</td>
+      <td>Incoming balance</td>
+      <td>Incoming supply</td>
+      <td>Incoming order</td>
+      <td>Delivered order</td>
+      <td>Current inventory</td>
+      <td>Current backlog</td>
+      <td>Current balance</td>
+      <td>Placed order</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each data}}
+    <tr>
+      <td>{{round}}</td>
+      <td>{{incomingBalance}}</td>
+      <td>{{incomingSupply}}</td>
+      <td>{{incomingOrder}}</td>
+      <td>{{deliveredOrder}}</td>
+      <td>{{currentInventory}}</td>
+      <td>{{currentBacklog}}</td>
+      <td>{{currentBalance}}</td>
+      <td>{{placedOrder}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</template>
