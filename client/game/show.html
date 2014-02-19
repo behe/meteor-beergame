@@ -1,24 +1,4 @@
-<head>
-  <title>MIT Beer Distribution Game</title>
-</head>
-
-<body>
-<h1>MIT Beer Distribution Game</h1>
-
-{{> join}}
-{{> game}}
-</body>
-
-<template name="join">
-  {{#if show}}
-  <p class="join">
-    <button>Join game</button>
-  </p>
-  {{/if}}
-</template>
-
-<template name="game">
-  {{#if show}}
+<template name="gameShow">
   <div class="game">
     <p>
       <input type="text" class="order"/>
@@ -28,7 +8,6 @@
     {{> gameStatus}}
     {{> result}}
   </div>
-  {{/if}}
 </template>
 
 <template name="gameStatus">

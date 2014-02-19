@@ -1,5 +1,6 @@
 {
   "packages": {
-    "chartjs": {}
+    "chartjs": {},
+    "router": {}
   }
 }
